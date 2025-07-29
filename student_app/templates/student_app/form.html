@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{% if student %}Edit{% else %}Add{% endif %} Student</title>
+</head>
+<body>
+    <h2>{% if student %}Edit{% else %}Add{% endif %} Student</h2>
+    <form method="post">
+        {% csrf_token %}
+        Name: <input type="text" name="name" value="{{ student.name|default:'' }}"><br><br>
+        Roll No: <input type="text" name="roll_number" value="{{ student.roll_number|default:'' }}"><br><br>
+        Email: <input type="email" name="email" value="{{ student.email|default:'' }}"><br><br>
+        Course: <input type="text" name="course" value="{{ student.course|default:'' }}"><br><br>
+        <button type="submit">Submit</button>
+    </form>
+</body>
+</html>
