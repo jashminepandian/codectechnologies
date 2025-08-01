@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Student List</title>
+</head>
+<body>
+    <h2>Student List</h2>
+    <a href="/create/">Add Student</a>
+    <table border="1">
+        <tr>
+            <th>Name</th>
+            <th>Roll No</th>
+            <th>Email</th>
+            <th>Course</th>
+            <th>Actions</th>
+        </tr>
+        {% for s in students %}
+        <tr>
+            <td>{{ s.name }}</td>
+            <td>{{ s.roll_number }}</td>
+            <td>{{ s.email }}</td>
+            <td>{{ s.course }}</td>
+            <td>
+                <a href="/update/{{ s.id }}">Edit</a> |
+                <a href="/delete/{{ s.id }}">Delete</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>
